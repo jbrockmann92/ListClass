@@ -5,7 +5,7 @@ using CustomList;
 namespace ListTests
 {
     [TestClass]
-    public class ListTests
+    public class AddTests
     {
         //Tests that the .Add function is adding the item to the list
         [TestMethod]
@@ -68,5 +68,24 @@ namespace ListTests
             //Assert
             Assert.AreEqual(testIndexZero, myList[0]);
         }
+
+        //Tests to see if the Array expands when you add an item beyond its current length. Default will be 4
+        [TestMethod]
+        public void CheckArrayExpansion()
+        {
+            //Arrange
+            int arrayLength = 5;
+            MyList myList = new MyList();
+
+            //Act
+            myList.Add(1);
+            myList.Add(1);
+            myList.Add(1);
+            myList.Add(1);
+            myList.Add(1);
+
+            //Assert
+            Assert.AreEqual(arrayLength, myList.Length);
+        }
     }
-}
+} 
