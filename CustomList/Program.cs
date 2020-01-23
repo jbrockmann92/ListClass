@@ -10,8 +10,8 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            List<int> integers = new List<int>() { 1 };
-            Console.WriteLine(integers.Capacity);
+            List<string> strings = new List<string>() { "Mary ", "Murphy ", "Dave " };
+            Console.WriteLine(strings[0] + strings[1] + strings[2]);
             Console.ReadLine();
 
         }
