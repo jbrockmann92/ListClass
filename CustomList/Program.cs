@@ -10,10 +10,12 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            List<string> strings = new List<string>() { "Mary ", "Murphy ", "Dave " };
-            Console.WriteLine(strings[0] + strings[1] + strings[2]);
-            Console.ReadLine();
+            //List<string> strings = new List<string>() { "Mary ", "Murphy ", "Dave " };
+            //Console.WriteLine(strings[0] + strings[1] + strings[2]);
+            //Console.ReadLine();
 
+            MyList<int> mylist = new MyList<int>();
+            //Is this right?
         }
     }
 }

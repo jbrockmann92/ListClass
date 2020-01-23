@@ -12,7 +12,7 @@ namespace ListTests
         public void CheckZeroIndexAfterAdd()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 5;
             int actualResult;
 
@@ -29,7 +29,7 @@ namespace ListTests
         public void CheckCountAfterAdd()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 1;
             int actualResult;
 
@@ -47,7 +47,7 @@ namespace ListTests
         public void CheckIndexOneAfterAddingSecondItem()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 5;
             int actualResult;
 
@@ -65,7 +65,7 @@ namespace ListTests
         public void CheckIndexZeroAfterAddingSecondItem()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 5;
             int actualResult;
 
@@ -83,7 +83,7 @@ namespace ListTests
         public void CheckArrayExpansion()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 8;
             int actualResult;
 
@@ -104,7 +104,7 @@ namespace ListTests
         public void CheckDuplicateData()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 2;
             int actualResult;
 

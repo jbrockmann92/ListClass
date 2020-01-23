@@ -12,7 +12,7 @@ namespace ListTests
         public void CheckIfRemoveFunctionRemoves()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<string> myList = new MyList<string>();
             string expectedNames = "Mary Dave";
             string actualNames;
 
@@ -32,7 +32,7 @@ namespace ListTests
         public void CheckZeroIndexAfterRemove()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 5;
             int actualResult;
 
@@ -51,7 +51,7 @@ namespace ListTests
         public void CheckOneIndexAfterRemove()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 20;
             int actualResult;
 
@@ -70,7 +70,7 @@ namespace ListTests
         public void CheckRemoveNotInList()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 2;
             int actualResult;
 
@@ -88,14 +88,14 @@ namespace ListTests
         public void TestRemoveDuplicateOnlyOnce()
         {
             //Arrange
-            MyList myList = new MyList();
+            MyList<int> myList = new MyList<int>();
             int expectedResult = 2;
             int actualResult;
 
             //Act
             myList.Add(5);
             myList.Add(20);
-            myList.Add(20)
+            myList.Add(20);
             myList.Remove(20);
             actualResult = myList.Count;
 
