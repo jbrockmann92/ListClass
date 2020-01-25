@@ -10,12 +10,20 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            //List<string> strings = new List<string>() { "Mary ", "Murphy ", "Dave " };
-            //Console.WriteLine(strings[0] + strings[1] + strings[2]);
-            //Console.ReadLine();
 
-            MyList<int> mylist = new MyList<int>();
-            //Is this right?
+            //Arrange
+            MyList<int> myList = new MyList<int>();
+            int expectedResult = 5;
+            int actualResult;
+
+            //Act
+            myList.Add(5);
+            myList.Add(5);
+            myList.Add(5);
+            myList.Add(5);
+            myList.Add(5);
+            myList.Add(5);
+            actualResult = myList[0];
         }
     }
 }

@@ -21,7 +21,7 @@ namespace ListTests
             myList.Add("Murphy");
             myList.Add("Dave");
             myList.Remove("Murphy");
-            actualNames = mylist[0] + mylist[1];
+            actualNames = myList[0] + myList[1];
 
             //Assert
             Assert.AreNotEqual(expectedNames, actualNames);
