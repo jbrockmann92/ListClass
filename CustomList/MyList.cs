@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    //Seems like I need to write a way for the indexer to work in order to try any of my tests
     public class MyList<T> : IEnumerable where T : IComparable<T>
     {
         public T MaxValue;
@@ -151,11 +150,16 @@ namespace CustomList
 
             //Seems like I need to iterate over the second list and use the Add method for each item in the list. Nice that each instantiation has its own count property
             //All in the same class, so don't have to worry about public and private as long as scope is properly set
-            for (int i = 0; i <= list2.count; i++)
+            for (int i = 0; i <= list1.Count - 1; i++)
             {
-                list1.Add(list2[i]);
+                resultList.Add(list1[i]);
             }
-            
+
+            for (int i = 0; i <= list2.Count - 1; i++)
+            {
+                resultList.Add(list2[i]);
+            }
+
             return resultList;
         }
 
