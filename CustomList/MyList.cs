@@ -12,6 +12,7 @@ namespace CustomList
         public T MaxValue;
         public T[] items;
         int arrayIndex;
+        bool isFound;
 
         private int capacity = 4;
         public int Capacity
@@ -62,27 +63,28 @@ namespace CustomList
         public void Remove(T item)
         {
             int tempIndex = arrayIndex;
+            int tempCount = Count;
             //Feels like there's a better way to do this. Should be able to do it without creating another variable?
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < tempCount; i++)
             {
                 if (tempIndex == arrayIndex && item.CompareTo(items[i]) == 0)
+                    //Tests to make sure only one item is removed. If an item has been removed, it will not go through again and remove any duplicates
                 {
+                    isFound = true;
                     items[i] = default;
                     arrayIndex--;
                     count--;
-                    items[arrayIndex] = items[tempIndex];
-                        //Only duplicates, doesn't remove the previous
+                    //Are those both the same always? I think I can get rid of arrayIndex and just use (count - 1)
                 }
+                MoveDownIndex(i);
             }
-            //Need to make sure [1] is moved to [0] when 
-
         }
 
         public void CreateNewArray()
         {
             T[] tempArray = new T[Capacity];
             tempArray = items;
-            //Will this work? Just to copy the array, ora do I need to do a for loop like below?
+            //Will this work? Just to copy the array, or do I need to do a for loop like below?
             int tempCapacity = Capacity - 1;
 
             Capacity += 4;
@@ -91,6 +93,18 @@ namespace CustomList
             for (int i = 0; i <= tempCapacity; i++)
             {
                 items[i] = tempArray[i];
+            }
+        }
+
+        public void MoveDownIndex(int variable)
+        {
+            if (isFound == true)
+            {
+                for (int i = variable; i < Count; i++)
+                {
+                    items[i] = items[i + 1];
+                    //Works until we reach the first item in the list. 
+                }
             }
         }
 
