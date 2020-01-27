@@ -12,17 +12,15 @@ namespace CustomList
         {
 
             //Arrange
-            MyList<int> myList = new MyList<int>();
-            int expectedResult = 5;
-            int actualResult;
+            MyList<string> myList = new MyList<string>();
+            string expectedResult = "MaryPaulPoppy";
+            string actualResult;
 
             //Act
-            myList.Add(5);
-            myList.Add(20);
-            myList.Add(20);
-            myList.Add(39);
-            myList.Remove(20);
-            actualResult = myList[0];
+            myList.Add("Mary");
+            myList.Add("Paul");
+            myList.Add("Poppy");
+            actualResult = myList.ToString();
         }
     }
 }

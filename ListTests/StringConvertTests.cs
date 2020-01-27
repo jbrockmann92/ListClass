@@ -20,7 +20,7 @@ namespace ListTests
             myList.Add("Mary");
             myList.Add("Paul");
             myList.Add("Poppy");
-            actualResult = myList.ConvertToString();
+            actualResult = myList.ToString();
 
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
@@ -39,7 +39,7 @@ namespace ListTests
             myList.Add("Mary");
             myList.Add("Paul");
             myList.Add("Poppy");
-            actualResult = myList.ConvertToString();
+            actualResult = myList.ToString();
 
             //Assert
             Assert.IsTrue(expectedResult == actualResult);
@@ -61,7 +61,7 @@ namespace ListTests
             myList.Add("Dave");
             myList.Add("James");
             myList.Add("Bonnie");
-            actualResult = myList.ConvertToString();
+            actualResult = myList.ToString();
 
             //Assert
             Assert.IsTrue(expectedResult == actualResult);
@@ -72,18 +72,15 @@ namespace ListTests
         public void CheckIntReturnsAsString()
         {
             //Arrange
-            MyList<string> myList = new MyList<string>();
-            string expectedResult = "MaryPaulPoppyDaveJamesBonnie";
+            MyList<int> myList = new MyList<int>();
+            string expectedResult = "175";
             string actualResult;
 
             //Act
-            myList.Add("Mary");
-            myList.Add("Paul");
-            myList.Add("Poppy");
-            myList.Add("Dave");
-            myList.Add("James");
-            myList.Add("Bonnie");
-            actualResult = myList.ConvertToString();
+            myList.Add(1);
+            myList.Add(7);
+            myList.Add(5);
+            actualResult = myList.ToString();
 
             //Assert
             Assert.IsTrue(expectedResult == actualResult);

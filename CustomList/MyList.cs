@@ -117,9 +117,16 @@ namespace CustomList
             set { items[param] = value; }
         }
 
-        public string ConvertToString()
+        public override string ToString()
         {
+            string convertedToString = "";
             //Want a foreach loop that converts each item to a string and adds it to the current string. Should be somewhat easy
+            foreach (T item in items)
+            {
+                string convert = item.ToString();
+                convertedToString += convert;
+            }
+            return convertedToString;
         }
     }
 }
