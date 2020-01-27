@@ -26,18 +26,13 @@ namespace CustomList
                 capacity = value;
             }
         }
-        //Capacity has to be equal to 4
-        //I don't think I want to be able to set these. Maybe I do? Just not let the user have access to them?
+
         private int count;
         public int Count
         {
             get
             {
                 return count;
-            }
-            set
-            {
-                count = value;
             }
         }
         //The only way I know how to do these is in a different class. Look up syntax??
@@ -84,7 +79,6 @@ namespace CustomList
         {
             T[] tempArray = new T[Capacity];
             tempArray = items;
-            //Will this work? Just to copy the array, or do I need to do a for loop like below?
             int tempCapacity = Capacity - 1;
 
             Capacity += 4;
@@ -103,16 +97,29 @@ namespace CustomList
                 for (int i = variable; i < Count; i++)
                 {
                     items[i] = items[i + 1];
-                    //Works until we reach the first item in the list. 
                 }
             }
         }
 
-        //Indexer. Needs to have access to Capacity? And/Or arrayIndex?
         public T this[int param]
         {
-            get { return items[param]; }
+            get 
+            {
+                if (param <= arrayIndex - 1)
+                {
+                    return items[param];
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
+            }
             set { items[param] = value; }
+        }
+
+        public string ConvertToString()
+        {
+            //Want a foreach loop that converts each item to a string and adds it to the current string. Should be somewhat easy
         }
     }
 }
