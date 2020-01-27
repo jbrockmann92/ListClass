@@ -165,8 +165,16 @@ namespace CustomList
 
         //Overload - operator. Should just be using the Remove method
 
-        //Zip two lists together. Should be something with the Add method
+        public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> resultList = new MyList<T>();
 
-        //Iterable list. Something with enums?
+            
+            
+
+            return resultList;
+        }
+
+        //Zip two lists together. Should be something with the Add method
     }
 }
