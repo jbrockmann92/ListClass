@@ -52,6 +52,7 @@
     <Compile Include="AddTests.cs" />
     <Compile Include="CountTests.cs" />
     <Compile Include="IndexTests.cs" />
+    <Compile Include="OverloadPlusTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveTests.cs" />
     <Compile Include="StringConvertTests.cs" />

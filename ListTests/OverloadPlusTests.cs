@@ -1,15 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CustomList;
 
-namespace CustomList
+namespace ListTests
 {
-    class Program
+    [TestClass]
+    public class Overload_Tests
     {
-        static void Main(string[] args)
+        //Tests the + operator to make sure it's adding each of the items in the second list onto the first one
+        [TestMethod]
+        public void TestMethod1()
         {
+            //Arrange
             MyList<int> myList = new MyList<int>();
             MyList<int> myList1 = new MyList<int>();
             MyList<int> expectedResult = new MyList<int>();
@@ -32,6 +34,9 @@ namespace CustomList
             myList1.Add(6);
 
             actualResult = myList + myList1;
+
+            //Assert
+            Assert.AreEqual(expectedResult, actualResult);
         }
     }
 }

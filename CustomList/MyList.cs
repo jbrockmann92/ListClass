@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace CustomList
 {
     //Seems like I need to write a way for the indexer to work in order to try any of my tests
-    public class MyList<T> where T : IComparable<T>
+    public class MyList<T> : IEnumerable where T : IComparable<T>
     {
         public T MaxValue;
         public T[] items;
@@ -121,12 +122,46 @@ namespace CustomList
         {
             string convertedToString = "";
             //Want a foreach loop that converts each item to a string and adds it to the current string. Should be somewhat easy
-            foreach (T item in items)
+            for (int i = 0; i <= Count - 1; i++)
             {
-                string convert = item.ToString();
+                string convert = items[i].ToString();
                 convertedToString += convert;
             }
             return convertedToString;
         }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return items[i];
+            }
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            throw new NotImplementedException();
+        }
+
+        //Overload + operator. Should just be using the Add method
+        public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
+        {
+            MyList < T > resultList = new MyList<T>();
+
+            //Seems like I need to iterate over the second list and use the Add method for each item in the list. Nice that each instantiation has its own count property
+            //All in the same class, so don't have to worry about public and private as long as scope is properly set
+            for (int i = 0; i <= list2.count; i++)
+            {
+                list1.Add(list2[i]);
+            }
+            
+            return resultList;
+        }
+
+        //Overload - operator. Should just be using the Remove method
+
+        //Zip two lists together. Should be something with the Add method
+
+        //Iterable list. Something with enums?
     }
 }
