@@ -97,6 +97,7 @@ namespace CustomList
                 for (int i = variable; i < Count; i++)
                 {
                     items[i] = items[i + 1];
+                    isFound = false;
                 }
             }
         }
@@ -150,12 +151,12 @@ namespace CustomList
 
             //Seems like I need to iterate over the second list and use the Add method for each item in the list. Nice that each instantiation has its own count property
             //All in the same class, so don't have to worry about public and private as long as scope is properly set
-            for (int i = 0; i <= list1.Count - 1; i++)
+            for (int i = 0; i < list1.Count; i++)
             {
                 resultList.Add(list1[i]);
             }
 
-            for (int i = 0; i <= list2.Count - 1; i++)
+            for (int i = 0; i < list2.Count; i++)
             {
                 resultList.Add(list2[i]);
             }
@@ -167,12 +168,20 @@ namespace CustomList
 
         public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
         {
-            MyList<T> resultList = new MyList<T>();
-
             
-            
-
-            return resultList;
+            for (int i = 0; i < list1.Count; i++)
+            {
+                for (int j = 0; j < list2.Count; j++)
+                {
+                    if (list1[i].CompareTo(list2[j]) == 0)
+                    {
+                        list1.Remove(list1[i]);
+                        //When I call Remove() here, it ends up doing too much. Just want it to take out the one from the one spot.
+                        //Fixed by setting isFound = false; again after it finds the matching item. Should have been there in the first place
+                    }
+                }
+            }
+            return list1;
         }
 
         //Zip two lists together. Should be something with the Add method

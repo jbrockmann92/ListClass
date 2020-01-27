@@ -36,7 +36,7 @@ namespace ListTests
 
         //Tests to make sure that the minus operator removes the correct item(s) from the list
         [TestMethod]
-        public void Test()
+        public void TestCorrectItemsRemovedUsingMinus()
         {
             //Arrange
             MyList<int> myList = new MyList<int>();
