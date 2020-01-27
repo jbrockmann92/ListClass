@@ -24,5 +24,21 @@ namespace ListTests
             //Assert
             Assert.AreEqual(expectedResult, actualResult);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void TestIndexerOutOfBoundsException()
+        {
+            //Arrange
+            MyList<int> myList = new MyList<int>();
+            
+            int actualResult;
+
+            //Act
+            myList.Add(3);
+            myList.Add(5);
+            myList.Add(7);
+            actualResult = myList[5];
+        }
     }
 }

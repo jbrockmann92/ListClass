@@ -130,19 +130,13 @@ namespace CustomList
             return convertedToString;
         }
 
-        public IEnumerator<T> GetEnumerator()
+        public IEnumerator GetEnumerator()
         {
             for (int i = 0; i < Count; i++)
             {
                 yield return items[i];
             }
         }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-        //Need to figure out why this is here and why it gives me an error if it's not
 
         //Overload + operator. Should just be using the Add method
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
