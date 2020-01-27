@@ -19,11 +19,7 @@ namespace CustomList
             //Act
             myList.Add(5);
             myList.Add(5);
-            myList.Add(5);
-            myList.Add(5);
-            myList.Add(5);
-            myList.Add(5);
-            actualResult = myList[0];
+            myList.Remove(5);
         }
     }
 }

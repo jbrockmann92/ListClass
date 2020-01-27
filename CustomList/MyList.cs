@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 namespace CustomList
 {
     //Seems like I need to write a way for the indexer to work in order to try any of my tests
-    public class MyList<T>
+    public class MyList<T> where T : IComparable<T>
     {
+        public T MaxValue;
         public T[] items;
         int arrayIndex;
 
@@ -60,12 +61,20 @@ namespace CustomList
 
         public void Remove(T item)
         {
-            items[arrayIndex] = default(T);
-            arrayIndex--;
-            count--;
-            //Should only decrement if the removal is successful. That's one of the tests
-            //Other test doesn't work because I currently have it set up to only remove the most recently added thing.
-            //Need to remove according to if statements or something
+            int tempIndex = arrayIndex;
+            //Feels like there's a better way to do this. Should be able to do it without creating another variable?
+            for (int i = 0; i < count; i++)
+            {
+                if (tempIndex == arrayIndex && item.CompareTo(items[i]) == 0)
+                {
+                    items[i] = default;
+                    arrayIndex--;
+                    count--;
+                    items[arrayIndex] = items[tempIndex];
+                        //Only duplicates, doesn't remove the previous
+                }
+            }
+            //Need to make sure [1] is moved to [0] when 
 
         }
 
@@ -73,7 +82,7 @@ namespace CustomList
         {
             T[] tempArray = new T[Capacity];
             tempArray = items;
-            //Will this work? Just to copy the array, or do I need to do a for loop like below?
+            //Will this work? Just to copy the array, ora do I need to do a for loop like below?
             int tempCapacity = Capacity - 1;
 
             Capacity += 4;
