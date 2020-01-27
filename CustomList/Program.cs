@@ -31,7 +31,8 @@ namespace CustomList
             myList1.Add(5);
             myList1.Add(6);
 
-            actualResult = myList + myList1;
+            actualResult = (myList + myList1);
+            Console.ReadLine();
         }
     }
 }

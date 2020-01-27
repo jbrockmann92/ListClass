@@ -106,7 +106,7 @@ namespace CustomList
         {
             get 
             {
-                if (param <= arrayIndex - 1)
+                if (param <= arrayIndex)
                 {
                     return items[param];
                 }
@@ -122,7 +122,7 @@ namespace CustomList
         {
             string convertedToString = "";
             //Want a foreach loop that converts each item to a string and adds it to the current string. Should be somewhat easy
-            for (int i = 0; i <= Count - 1; i++)
+            for (int i = 0; i < Count; i++)
             {
                 string convert = items[i].ToString();
                 convertedToString += convert;
@@ -142,6 +142,7 @@ namespace CustomList
         {
             throw new NotImplementedException();
         }
+        //Need to figure out why this is here and why it gives me an error if it's not
 
         //Overload + operator. Should just be using the Add method
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
