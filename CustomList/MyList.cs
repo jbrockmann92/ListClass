@@ -9,9 +9,7 @@ namespace CustomList
 {
     public class MyList<T> : IEnumerable where T : IComparable<T>
     {
-        public T MaxValue;
         public T[] items;
-        int arrayIndex;
         bool isFound;
 
         private int capacity = 4;
@@ -40,34 +38,30 @@ namespace CustomList
         public MyList()
         {
             items = new T[4];
-            arrayIndex = 0;
         }
 
         public void Add(T item)
         {
-            if (arrayIndex > Capacity - 1)
+            if (Count > Capacity - 1)
             {
                 CreateNewArray();
             }
 
-            items[arrayIndex] = item;
-            arrayIndex++;
+            items[Count] = item;
             count++;
         }
 
         public void Remove(T item)
         {
-            int tempIndex = arrayIndex;
             int tempCount = Count;
             //Feels like there's a better way to do this. Should be able to do it without creating another variable?
             for (int i = 0; i < tempCount; i++)
             {
-                if (tempIndex == arrayIndex && item.CompareTo(items[i]) == 0)
+                if (tempCount == Count && item.CompareTo(items[i]) == 0)
                     //Tests to make sure only one item is removed. If an item has been removed, it will not go through again and remove any duplicates
                 {
                     isFound = true;
                     items[i] = default;
-                    arrayIndex--;
                     count--;
                     //Are those both the same always? I think I can get rid of arrayIndex and just use (count - 1)
                 }
@@ -106,7 +100,7 @@ namespace CustomList
         {
             get 
             {
-                if (param <= arrayIndex)
+                if (param <= Count)
                 {
                     return items[param];
                 }
