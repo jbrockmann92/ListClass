@@ -7,9 +7,9 @@ namespace ListTests
     [TestClass]
     public class ZipperTests
     {
-        //Tests 
+        //Tests if the Zip method puts things in the right order
         [TestMethod]
-        public void TestMethod1()
+        public void TestIfZipperWorksInOrder()
         {
             //Arrange
             MyList<int> oddList = new MyList<int>();
@@ -27,9 +27,8 @@ namespace ListTests
             evenList.Add(4);
             evenList.Add(6);
 
-            resultingList = oddList.Zip(evenList);
+            resultingList = MyList<int>.Zip(oddList, evenList);
             actualResult = resultingList.ToString();
-            //.Zip(parameter)
 
             //Assert
             Assert.AreEqual(expectedResult, actualResult);

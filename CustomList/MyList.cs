@@ -178,6 +178,19 @@ namespace CustomList
             return list1;
         }
 
-        //Zip two lists together. Should be something with the Add method
+        public static MyList<T> Zip(MyList<T> list1, MyList<T> list2)
+        {
+            //I don't think I want to use my Add method here. Probably write unique logic
+            MyList<T> resultList = new MyList<T>();
+            MyList<T> tempList = new MyList<T>();
+            tempList = list1;
+            for (int i = 0; i < list2.Count; i++)
+            {
+                resultList.Add(tempList[i]);
+                resultList.Add(list2[i]);
+                //Doesn't probably quite work. Need to make space for each of the incoming zipper pieces
+            }
+            return resultList;
+        }
     }
 }
