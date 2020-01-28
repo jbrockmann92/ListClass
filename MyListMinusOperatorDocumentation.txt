@@ -1,4 +1,28 @@
-﻿using System;
+MyList Minus Operator Documentation
+
+Removes the first encountered occurrence in the first MyList of each object in the second MyList.
+
+ MyList<T> list1 = new MyList<T>(); 
+ MyList<T> list2 = new MyList<T>();
+  MyList<T> resultingList = new MyList<T>();
+ 
+ resultingList = list1 - list2;
+
+Necessary Variables
+
+MyList<T> list1, MyList<T> list2, MyList<T> resultingList;
+
+The first MyList to have objects removed, the second MyList containing any items to be removed from the first MyList, the list into which the returned MyList will be passed
+
+Returns
+
+MyList<T>
+
+Returns a MyList of the objects that remain in the first MyList after the first encountered instance in the first MyList.
+
+Example
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;

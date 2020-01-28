@@ -33,7 +33,6 @@ namespace CustomList
                 return count;
             }
         }
-        //The only way I know how to do these is in a different class. Look up syntax??
 
         public MyList()
         {
@@ -54,7 +53,6 @@ namespace CustomList
         public void Remove(T item)
         {
             int tempCount = Count;
-            //Feels like there's a better way to do this. Should be able to do it without creating another variable?
             for (int i = 0; i < tempCount; i++)
             {
                 if (tempCount == Count && item.CompareTo(items[i]) == 0)
@@ -63,7 +61,6 @@ namespace CustomList
                     isFound = true;
                     items[i] = default;
                     count--;
-                    //Are those both the same always? I think I can get rid of arrayIndex and just use (count - 1)
                 }
                 MoveDownIndex(i);
             }
@@ -96,20 +93,20 @@ namespace CustomList
             }
         }
 
-        public T this[int param]
+        public T this[int index]
         {
             get 
             {
-                if (param <= Count)
+                if (index <= Count)
                 {
-                    return items[param];
+                    return items[index];
                 }
                 else
                 {
                     throw new IndexOutOfRangeException();
                 }
             }
-            set { items[param] = value; }
+            set { items[index] = value; }
         }
 
         public override string ToString()
