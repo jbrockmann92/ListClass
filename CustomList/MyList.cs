@@ -136,7 +136,7 @@ namespace CustomList
             return resultList;
         }
 
-        //Method to move the data around. Using the QuickSort algorithm
+        //Here using the QuickSort algorithm
         public static void Exchange(MyList<int> myList, int m, int n)
         {
             int temporary;
@@ -146,8 +146,6 @@ namespace CustomList
             myList[n] = temporary;
         }
 
-        //Method to sort things into the right places. Copied from online, but changed for naming convention and so it actually uses my data
-        //Slightly different than those I found on YouTube. Those said 
         public static void IntSort(MyList<int> myList, int zero, int countMinus)
         {
             int beginning, end;
@@ -181,13 +179,6 @@ namespace CustomList
         public static void IntSort(MyList<int> myList)
         {
             IntSort(myList, 0, myList.Count - 1);
-        }
-
-        public void InsertAt()
-        {
-            //Method to insert an item at a particular index in the list
-            //Add if you have time
-
         }
 
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)

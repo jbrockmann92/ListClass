@@ -7,9 +7,9 @@ namespace ListTests
     [TestClass]
     public class SortTests
     {
-        //Tests to make sure sort puts ints in descending order
+        //Tests to make sure sort puts ints in ascending order
         [TestMethod]
-        public void TestIfSortPutsIntsInDescendingOrder()
+        public void TestIfSortPutsIntsInAscendingOrder()
         {
             //Arrange
             MyList<int> myList = new MyList<int>();
