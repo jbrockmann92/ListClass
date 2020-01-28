@@ -124,6 +124,11 @@ namespace CustomList
             return resultList;
         }
 
+        public void InsertAt()
+        {
+            //Method to insert an item at a particular index in the list
+        }
+
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
         {
             MyList<T> resultList = new MyList<T>();
