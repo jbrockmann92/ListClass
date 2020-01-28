@@ -118,9 +118,22 @@ namespace CustomList
             tempList = list1;
             for (int i = 0; i < list2.Count; i++)
             {
-                resultList.Add(tempList[i]);
-                resultList.Add(list2[i]);
+                if ((i < list1.Count) && (i < list2.Count))
+                {
+                    resultList.Add(tempList[i]);
+                    resultList.Add(list2[i]);
+                }
+                else if ((list1.Count > list2.Count) && (i < list1.Count))
+                {
+                    resultList.Add(list1[i]);
+                }
+                else if ((list2.Count > list1.Count) && (i < list2.Count))
+                {
+                    resultList.Add(list2[i]);
+                }
             }
+            //Need to make sure that it keeps adding the remaining items to the resultList for whichever list is longer
+
             return resultList;
         }
 

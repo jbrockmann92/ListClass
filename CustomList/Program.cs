@@ -10,6 +10,26 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
+            MyList<int> oddList = new MyList<int>();
+            MyList<int> evenList = new MyList<int>();
+            MyList<int> resultingList = new MyList<int>();
+            string actualResult;
+            string expectedResult = "123456810";
+
+            //Act
+            oddList.Add(1);
+            oddList.Add(3);
+            oddList.Add(5);
+
+            evenList.Add(2);
+            evenList.Add(4);
+            evenList.Add(6);
+            evenList.Add(8);
+            evenList.Add(10);
+
+            resultingList = MyList<int>.Zip(oddList, evenList);
+            actualResult = resultingList.ToString();
+
         }
     }
 }
