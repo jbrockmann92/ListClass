@@ -10,25 +10,19 @@ namespace CustomList
     {
         static void Main(string[] args)
         {
-            MyList<int> oddList = new MyList<int>();
-            MyList<int> evenList = new MyList<int>();
-            MyList<int> resultingList = new MyList<int>();
-            string actualResult;
-            string expectedResult = "12345679";
+            MyList<int> testList = new MyList<int>();
+            MyList<int> resultList = new MyList<int>();
 
-            //Act
-            oddList.Add(1);
-            oddList.Add(3);
-            oddList.Add(5);
-            oddList.Add(4);
-            oddList.Add(2);
+            testList.Add(2);
+            testList.Add(9);
+            testList.Add(1); 
+            testList.Add(8);
+            testList.Add(2);
+            testList.Add(5);
 
-            evenList.Add(2);
-            evenList.Add(4);
-            evenList.Add(6);
+            MyList<int>.IntSort(testList);
 
-            MyList<int>.IntArrayQuickSort(oddList, 1, 2);
-            Console.WriteLine(oddList);
+            Console.WriteLine(testList);
             Console.ReadLine();
 
         }
