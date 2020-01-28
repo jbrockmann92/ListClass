@@ -14,18 +14,18 @@ namespace CustomList
             MyList<int> evenList = new MyList<int>();
             MyList<int> resultingList = new MyList<int>();
             string actualResult;
-            string expectedResult = "123456810";
+            string expectedResult = "12345679";
 
             //Act
             oddList.Add(1);
             oddList.Add(3);
             oddList.Add(5);
+            oddList.Add(7);
+            oddList.Add(9);
 
             evenList.Add(2);
             evenList.Add(4);
             evenList.Add(6);
-            evenList.Add(8);
-            evenList.Add(10);
 
             resultingList = MyList<int>.Zip(oddList, evenList);
             actualResult = resultingList.ToString();

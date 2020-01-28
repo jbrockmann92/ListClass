@@ -116,7 +116,7 @@ namespace CustomList
             MyList<T> resultList = new MyList<T>();
             MyList<T> tempList = new MyList<T>();
             tempList = list1;
-            for (int i = 0; i < list2.Count; i++)
+            for (int i = 0; i < list2.Count || i < list1.Count; i++) //Can't do either list1 or list2 here
             {
                 if ((i < list1.Count) && (i < list2.Count))
                 {
