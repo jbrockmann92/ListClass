@@ -4,7 +4,7 @@ Removes the first encountered occurrence in the first MyList of each object in t
 
  MyList<T> list1 = new MyList<T>(); 
  MyList<T> list2 = new MyList<T>();
-  MyList<T> resultingList = new MyList<T>();
+ MyList<T> resultingList = new MyList<T>();
  
  resultingList = list1 - list2;
 

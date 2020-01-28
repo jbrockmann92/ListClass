@@ -10,7 +10,7 @@ namespace CustomList
     public class MyList<T> : IEnumerable where T : IComparable<T>
     {
         public T[] items;
-        bool isFound;
+        bool isRemoveFound;
 
         private int capacity = 4;
         public int Capacity
@@ -56,9 +56,8 @@ namespace CustomList
             for (int i = 0; i < tempCount; i++)
             {
                 if (tempCount == Count && item.CompareTo(items[i]) == 0)
-                    //Tests to make sure only one item is removed. If an item has been removed, it will not go through again and remove any duplicates
                 {
-                    isFound = true;
+                    isRemoveFound = true;
                     items[i] = default;
                     count--;
                 }
@@ -83,36 +82,19 @@ namespace CustomList
 
         public void MoveDownIndex(int variable)
         {
-            if (isFound == true)
+            if (isRemoveFound == true)
             {
                 for (int i = variable; i < Count; i++)
                 {
                     items[i] = items[i + 1];
-                    isFound = false;
+                    isRemoveFound = false;
                 }
             }
-        }
-
-        public T this[int index]
-        {
-            get 
-            {
-                if (index <= Count)
-                {
-                    return items[index];
-                }
-                else
-                {
-                    throw new IndexOutOfRangeException();
-                }
-            }
-            set { items[index] = value; }
         }
 
         public override string ToString()
         {
             string convertedToString = "";
-            //Want a foreach loop that converts each item to a string and adds it to the current string. Should be somewhat easy
             for (int i = 0; i < Count; i++)
             {
                 string convert = items[i].ToString();
@@ -129,13 +111,22 @@ namespace CustomList
             }
         }
 
-        //Overload + operator. Should just be using the Add method
+        public static MyList<T> Zip(MyList<T> list1, MyList<T> list2)
+        {
+            MyList<T> resultList = new MyList<T>();
+            MyList<T> tempList = new MyList<T>();
+            tempList = list1;
+            for (int i = 0; i < list2.Count; i++)
+            {
+                resultList.Add(tempList[i]);
+                resultList.Add(list2[i]);
+            }
+            return resultList;
+        }
+
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
         {
-            MyList < T > resultList = new MyList<T>();
-
-            //Seems like I need to iterate over the second list and use the Add method for each item in the list. Nice that each instantiation has its own count property
-            //All in the same class, so don't have to worry about public and private as long as scope is properly set
+            MyList<T> resultList = new MyList<T>();
             for (int i = 0; i < list1.Count; i++)
             {
                 resultList.Add(list1[i]);
@@ -149,11 +140,9 @@ namespace CustomList
             return resultList;
         }
 
-        //Overload - operator. Should just be using the Remove method
-
         public static MyList<T> operator -(MyList<T> list1, MyList<T> list2)
         {
-            
+
             for (int i = 0; i < list1.Count; i++)
             {
                 for (int j = 0; j < list2.Count; j++)
@@ -161,27 +150,26 @@ namespace CustomList
                     if (list1[i].CompareTo(list2[j]) == 0)
                     {
                         list1.Remove(list1[i]);
-                        //When I call Remove() here, it ends up doing too much. Just want it to take out the one from the one spot.
-                        //Fixed by setting isFound = false; again after it finds the matching item. Should have been there in the first place
                     }
                 }
             }
             return list1;
         }
 
-        public static MyList<T> Zip(MyList<T> list1, MyList<T> list2)
+        public T this[int index]
         {
-            //I don't think I want to use my Add method here. Probably write unique logic
-            MyList<T> resultList = new MyList<T>();
-            MyList<T> tempList = new MyList<T>();
-            tempList = list1;
-            for (int i = 0; i < list2.Count; i++)
+            get
             {
-                resultList.Add(tempList[i]);
-                resultList.Add(list2[i]);
-                //Doesn't probably quite work. Need to make space for each of the incoming zipper pieces
+                if (index <= Count)
+                {
+                    return items[index];
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException();
+                }
             }
-            return resultList;
+            set { items[index] = value; }
         }
     }
 }
