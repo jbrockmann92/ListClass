@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class MyList<T> : IEnumerable where T : IComparable<T>
+    public class MyList<T> : IEnumerable
     {
         public T[] items;
         bool isRemoveFound;
@@ -55,7 +55,7 @@ namespace CustomList
             int tempCount = Count;
             for (int i = 0; i < tempCount; i++)
             {
-                if (tempCount == Count && item.CompareTo(items[i]) == 0)
+                if (tempCount == Count && item.Equals(items[i]))
                 {
                     isRemoveFound = true;
                     items[i] = default;
@@ -132,7 +132,18 @@ namespace CustomList
                     resultList.Add(list2[i]);
                 }
             }
-            //Need to make sure that it keeps adding the remaining items to the resultList for whichever list is longer
+
+            return resultList;
+        }
+
+        public static MyList<int> IntSort(MyList<int> listToSort)
+        {
+            MyList<int> resultList;
+
+            for (int i = 0; i < listToSort.Count; i++)
+            {
+
+            }
 
             return resultList;
         }
@@ -140,6 +151,8 @@ namespace CustomList
         public void InsertAt()
         {
             //Method to insert an item at a particular index in the list
+            //Add if you have time
+
         }
 
         public static MyList<T> operator +(MyList<T> list1, MyList<T> list2)
@@ -165,7 +178,7 @@ namespace CustomList
             {
                 for (int j = 0; j < list2.Count; j++)
                 {
-                    if (list1[i].CompareTo(list2[j]) == 0)
+                    if (list1[i].Equals(list2[j]))
                     {
                         list1.Remove(list1[i]);
                     }

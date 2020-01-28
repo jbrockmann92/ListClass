@@ -56,6 +56,7 @@
     <Compile Include="OverloadPlusTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RemoveTests.cs" />
+    <Compile Include="SortTests.cs" />
     <Compile Include="StringConvertTests.cs" />
     <Compile Include="ZipperTests.cs" />
   </ItemGroup>

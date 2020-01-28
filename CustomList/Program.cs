@@ -20,15 +20,16 @@ namespace CustomList
             oddList.Add(1);
             oddList.Add(3);
             oddList.Add(5);
-            oddList.Add(7);
-            oddList.Add(9);
+            oddList.Add(4);
+            oddList.Add(2);
 
             evenList.Add(2);
             evenList.Add(4);
             evenList.Add(6);
 
-            resultingList = MyList<int>.Zip(oddList, evenList);
-            actualResult = resultingList.ToString();
+            MyList<int>.IntArrayQuickSort(oddList, 1, 2);
+            Console.WriteLine(oddList);
+            Console.ReadLine();
 
         }
     }
